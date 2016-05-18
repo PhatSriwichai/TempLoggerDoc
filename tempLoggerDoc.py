@@ -4,7 +4,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 import gspread, datetime
 
 scope = ['https://spreadsheet.google.com/feeds']
-credentials = ServiceAccountCredentials.from_json_keyfile_name('TempWithDoc-b4f3117a2d10.json', scope)
+credentials = ServiceAccountCredentials.from_json_keyfile_name('TempWithDoc-7e9e14ed4d4e.json', scope)
 
 gc = gspread.authorize(credentials)
 
@@ -19,7 +19,7 @@ def main():
 		row = 0
 		for values in wks.col_values(1):  ## loop count row
     				row = row + 1
-			addRow = [time, temperatures[0], temperatures[2], temperatures[1]] 
+			addRow = [time, temp[0], temp[2], temp[1]] 
 			wks.resize(row)
 			wks.append_row(addRow)
 			sleep(10)
